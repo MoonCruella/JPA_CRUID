@@ -13,6 +13,7 @@
     <th>Category Name</th>
     <th>Status</th>
     <th>Action</th>
+    <th>Video</th>
   </tr>
 	<c:forEach items= "${listcate}" var="cate" varStatus="STT" >
 		<tr>
@@ -27,7 +28,7 @@
 				</c:if>
 				<img height="150" width="200" src="${imgUrl}" />
 			</td>
-			<td>${cate.categoryname }</td>
+			<td>${cate.categoryname}</td>
 			<td>
 				<c:if test="${cate.status == 1 }">
 					<span>Hoat Dong</span>
@@ -37,9 +38,10 @@
 				</c:if>
 			
 			</td>
-			<td><a 
-				href= "<c:url value='/admin/category/edit?id=${cate.categoryid }'/>">Sửa</a>
-				<a href= "<c:url value='/admin/category/delete?id=${cate.categoryid }'/>">Xóa</a></td>
+			<td><a href= "<c:url value='/admin/category/edit?id=${cate.categoryid}'/>">Edit</a>
+				<a href= "<c:url value='/admin/category/delete?id=${cate.categoryid }'/>">Remove</a></td>
+			<td><a href="<c:url value='/admin/category/video/add?id=${cate.categoryid}'/>">Add Video</a>
+				<a href ="<c:url value='/admin/category/videos?id=${cate.categoryid}'/>">Show List</a></td>
 		</tr>
 	</c:forEach>
 </table>

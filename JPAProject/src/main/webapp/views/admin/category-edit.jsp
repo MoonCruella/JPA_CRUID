@@ -24,9 +24,15 @@
 
   <input type="file" onchange = "chooseFile(this)" id="images" name="images" value = "${cate.images}"><br><br>
   <label for="status">Status : </label><br>
-  <input type="radio" id="status" name="status" value = "1" checked>
-  <label type = "html"> Dang hoat dong</label><br>
-  <input type="radio" id="status" name="status" value = "0">
-  <label type = "css">Khoa</label><br>
+  <c:if test="${cate.status == 1}">
+  <input type="radio" id="status" name="status" value="1" checked>
+</c:if>
+<c:if test="${cate.status != 1}">
+  <input type="radio" id="status" name="status" value="1">
+</c:if>
+<label for="status">Dang hoat dong</label><br>
+
+<input type="radio" id="status" name="status" value="0" <c:if test="${cate.status == 0}">checked</c:if>>
+<label for="status">Khoa</label><br>
   <input type="submit" value="Submit">
 </form>
